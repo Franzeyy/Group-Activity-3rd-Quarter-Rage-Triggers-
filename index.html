@@ -4,14 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="ConditioncalStatement.css">
 </head>
 <body>
-    <h1>Conditional Statement</h1>
-    <h2>Rage Triggers</h2>
-    asdadd
-    
+    <h1>Showcasing if / else Conditions in JavaScript</h1>
+    <p>This page demonstrates simple conditional statements using JavaScript's <code>if</code>, <code>else if</code>, and <code>else</code>.</p>
 
-    
+    <!-- Example 1: Age Checker (if / else) -->
+    <section class="example">
+        <h2>Example 1 — Age Checker (if / else)</h2>
+        <p>Enter your age and click <strong>Check Age</strong>. The script uses an <code>if</code> / <code>else</code> statement to decide whether the person is an adult.</p>
+        <label for="ageInput">Age:</label>
+        <input id="ageInput" type="number" min="0" placeholder="Enter age" />
+        <button id="checkAgeBtn">Check Age</button>
+        <p class="result" id="ageResult" aria-live="polite"></p>
+    </section>
+
+    <!-- Example 2: Temperature Advice (if / else if / else) -->
+    <section class="example">
+        <h2>Example 2 — Temperature Advice (if / else if / else)</h2>
+        <p>Type a temperature in Celsius. The script decides what to recommend using <code>if</code>, <code>else if</code>, and <code>else</code>.</p>
+        <label for="tempInput">Temperature (°C):</label>
+        <input id="tempInput" type="number" placeholder="e.g., 25" />
+        <button id="tempBtn">Get Advice</button>
+        <p class="result" id="tempResult" aria-live="polite"></p>
+    </section>
+
+    <section class="example">
+    <h2>Example — Even or Odd Checker</h2>
+    <p>Enter a number to check if it is even or odd.</p>
+
+    <label for="evenOddInput">Number:</label>
+    <input id="evenOddInput" type="number" placeholder="Enter a number" />
+    <button id="evenOddBtn">Check</button>
+
+    <p class="result" id="evenOddResult" aria-live="polite"></p>
+</section>
+
+
 
     <script src="ConditioncalStatement.js"></script>
 </body>

@@ -41,7 +41,28 @@
         <p>Guess the random number between 1 to 10</p>
         <label for="userNum">User Number:</label>
         <input id="userNum" type="number" min="1" max="10" placeholder="Place you Guess here" />
+            <select name="level" id="lvl">
+            <option value="easy">easy</option>
+            <option value="medium">medium</option>
+            <option value="hard">hard</option>
+            <option value="extreme">extreme</option>
+        </select>
         <button id="guessBtn">Get Advice</button>
+        <p class="result" id="guessResult" aria-live="polite"></p>
+    </section>
+
+
+            <!-- Example 4: choosing a level difficulty-->
+    <section class="example">
+        <h2>Example 4 — choose a difficulty</h2>
+        <p>choose lever what you want</p>
+        <label for="level">level</label>
+        <select name="level" id="lvl">
+            <option value="easy">easy</option>
+            <option value="medium">medium</option>
+            <option value="hard">hard</option>
+            <option value="extreme">extreme</option>
+        </select>
         <p class="result" id="guessResult" aria-live="polite"></p>
     </section>
     
@@ -103,16 +124,35 @@
         const userNumInput = document.getElementById('userNum');
         const guessBtn = document.getElementById('guessBtn');
         const guessResult = document.getElementById('guessResult');
+        let maxNumber = 15;
+        let minNumber = 1;
 
         guessBtn.addEventListener('click', () => {
             const userNum = Number(userNumInput.value);
-            if (isNaN(userNum) || userNum < 1 || userNum > 10) {
-                guessResult.textContent = 'Please enter a valid number between 1 and 10.';
+            if (isNaN(userNum) || userNum < minNumber || userNum > maxNumber) {
+                guessResult.textContent = 'Please enter a valid number between 1 and 15.';
                 guessResult.style.color = 'crimson';
                 return;
             }
 
-            const randomNum = Math.floor(Math.random() * 10) + 1;
+
+            const randomNum = Math.floor(Math.random() * maxNumber) + minNumber;
+            switch (document.getElementById('lvl').value) {
+                case 'easy':
+                    maxNumber = 3;
+                    break;
+                case 'medium':
+                    maxNumber = 5;
+                    break;
+                case 'hard':
+                    maxNumber = 10;
+                    break;
+                case 'extreme':
+                    maxNumber = 15;
+                    break;
+                default:
+                    maxNumber = 15;
+            }
 
             // if / else if / else chain to check the guessed number
             if (userNum === randomNum) {

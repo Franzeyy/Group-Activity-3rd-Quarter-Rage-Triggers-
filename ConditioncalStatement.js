@@ -72,3 +72,52 @@
             evenOddResult.style.color = 'green';
         }
     });
+
+
+
+            // Example 3: Guess a number (if / else if / else)
+        const userNumInput = document.getElementById('userNum');
+        const guessBtn = document.getElementById('guessBtn');
+        const guessResult = document.getElementById('guessResult');
+        let maxNumber = 15;
+        let minNumber = 1;
+
+        guessBtn.addEventListener('click', () => {
+            const userNum = Number(userNumInput.value);
+            if (isNaN(userNum) || userNum < minNumber || userNum > maxNumber) {
+                guessResult.textContent = 'Please enter a valid number between 1 and 15.';
+                guessResult.style.color = 'crimson';
+                return;
+            }
+
+
+            const randomNum = Math.floor(Math.random() * maxNumber) + minNumber;
+            switch (document.getElementById('LVL').value) {
+                case 'EASY':
+                    maxNumber = 3;
+                    break;
+                case 'MEDUIM':
+                    maxNumber = 5;
+                    break;
+                case 'HARD':
+                    maxNumber = 10;
+                    break;
+                case 'EXTREAME':
+                    maxNumber = 15;
+                    break;
+                default:
+                    maxNumber = 15;
+            }
+
+            // if / else if / else chain to check the guessed number
+            if (userNum === randomNum) {
+                guessResult.textContent = `Congratulations! You guessed it right. The number was ${randomNum}.`;
+                guessResult.style.color = 'green';
+            } else if (userNum < randomNum) {
+                guessResult.textContent = `Too low! The correct number was ${randomNum}.`;
+                guessResult.style.color = 'blue';
+            } else {
+                guessResult.textContent = `Too high! The correct number was ${randomNum}.`;
+                guessResult.style.color = 'orange';
+            }
+        });

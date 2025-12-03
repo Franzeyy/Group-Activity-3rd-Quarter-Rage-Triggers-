@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If eles with loop</title>
+    <link rel="stylesheet" href="OddWithLoop.css">
+</head>
+<body>
+    <h1 style="text-align: center;">This is if eles with loops</h1>
+        <section class="example">
+        <h2>IF ELSE WITH EVEN OR ODD </h2>
+        <p>Enter any number from 1 to 100 and click <strong>Count</strong>. This version shows each number if it even or odd <code>for</code> loop.</p>
+        <label for="numInput">Count up to:</label>
+        <input id="numInput" type="number" min="1" placeholder="Please enter a number" />
+        <button id="count">Count</button>
+        <button id="clearCount">Clear</button>
+        <p class="result" id="countResult" aria-live="polite"></p>
+    </section>
+
+    
+    <script>
+    const num = document.getElementById('numInput');
+    const numInputBtn = document.getElementById('count');
+    const clearBtn = document.getElementById('clearCount');
+    const resultDiv = document.getElementById('countResult');
+    
+    numInputBtn.addEventListener('click', () => {
+        const n = Number(num.value);
+        if (isNaN(n) || n < 1 || n > 1000 ) {
+            resultDiv.textContent = 'Please enter a valid number (1 or 1000).';
+            resultDiv.style.color = 'crimson';
+            return;
+        }
+    
+    // Build the output string with newline characters — CSS 'white-space: pre-line' preserves them.
+        let output = '';
+        for (let i = 1; i <= n; i++) {
+            if (i % 2 === 0) {
+                output += i + " is even<br>";
+            } else {
+                output += i + " is odd<br>";
+            }
+        }
+        resultDiv.style.color = 'green';
+        resultDiv.innerHTML = output;
+    });
+    
+    // Clear button to remove output and reset input
+    clearBtn.addEventListener('click', () => {
+        resultDiv.textContent = '';
+        num.value = '';
+        resultDiv.style.color = '';
+    });
+        </script>
+    
+    
+
+
+
+
+<!--   <script>
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 === 0) {
+                document.write(i + " is even<br>");
+            } else {
+                document.write(i + " is odd<br>");
+            }
+        }
+  </script>
+-->
+
+</body>
+</html>
